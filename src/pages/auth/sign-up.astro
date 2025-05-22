@@ -20,8 +20,10 @@ import { PUBLIC_APP_NAME } from "astro:env/client";
 <AuthLayout>
   <AuthCard>
     <AuthCardContent>
-      <CardHeader className="flex flex-col items-center justify-center">
-        <Logo className="my-6" />
+      <Logo
+        className="bg-background hover:bg-background absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 border-2 border-dashed p-2"
+      />
+      <CardHeader className="flex flex-col items-center justify-center pt-8">
         <CardTitle className="text-center text-2xl font-bold">
           Create an Account
         </CardTitle>
@@ -30,18 +32,16 @@ import { PUBLIC_APP_NAME } from "astro:env/client";
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <!-- <SignUpForm client:load /> -->
-        <!-- <OrSeparator className="px-6" /> -->
         <OAuthForm client:load />
       </CardContent>
     </AuthCardContent>
-    <AuthCardFooter>
+    <AuthCardFooter className="pb-6">
       <Muted className="text-center">
         Already have an account?
         <a
           class={cn(
             buttonVariants({
-              variant: "ghost",
+              variant: "link",
               size: "sm",
             }),
             "font-bold",

@@ -12,7 +12,7 @@ const { class: className, ...props } = Astro.props;
   <ParticlesLayout client:load>
     <main
       class={cn(
-        "relative flex size-full flex-col items-center justify-center overflow-hidden rounded-sm border bg-background",
+        "relative flex size-full min-h-dvh flex-col items-center justify-center overflow-hidden rounded-sm",
         className,
       )}
       {...props}

@@ -3,14 +3,14 @@ import { cn } from "@/core/lib/cn";
 import { Card } from "@/core/ui/card";
 import type { ComponentPropsWithRef } from "react";
 
-interface Props extends ComponentPropsWithRef<typeof Card> {}
+type Props = ComponentPropsWithRef<typeof Card> & {};
 
 const { className, ...props } = Astro.props;
 ---
 
 <Card
   className={cn(
-    "relative z-10 w-full max-w-sm gap-0 overflow-hidden border-0 bg-transparent p-1 shadow-none",
+    "relative z-10 w-full max-w-sm gap-0 border-2 border-dashed bg-transparent p-1 shadow-none",
     className,
   )}
   {...props}

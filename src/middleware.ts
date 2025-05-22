@@ -1,7 +1,19 @@
 import { auth as betterAuth } from "@/core/lib/auth-server";
 import { defineMiddleware, sequence } from "astro:middleware";
 
+const ignored = ["/", "/api", "/svg"];
+
 const auth = defineMiddleware(async (context, next) => {
+  if (
+    ignored.some(
+      (url) =>
+        context.originPathname !== "/" &&
+        context.originPathname.startsWith(url),
+    )
+  ) {
+    return next();
+  }
+
   const session = await betterAuth.api.getSession({
     headers: context.request.headers,
   });

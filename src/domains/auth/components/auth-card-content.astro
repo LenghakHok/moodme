@@ -3,7 +3,7 @@ import { cn } from "@/core/lib/cn";
 import { Card } from "@/core/ui/card";
 import type { ComponentPropsWithRef } from "react";
 
-interface Props extends ComponentPropsWithRef<typeof Card> {}
+type Props = ComponentPropsWithRef<typeof Card> & {};
 
 const { className, ...props } = Astro.props;
 ---

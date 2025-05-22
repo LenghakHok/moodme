@@ -1,9 +1,9 @@
 ---
-import { CardFooter } from "@/core/ui/card";
 import { cn } from "@/core/lib/cn";
+import { CardFooter } from "@/core/ui/card";
 import type { ComponentPropsWithRef } from "react";
 
-interface Props extends ComponentPropsWithRef<typeof CardFooter> {}
+type Props = ComponentPropsWithRef<typeof CardFooter> & {};
 
 const { className, ...props } = Astro.props;
 ---

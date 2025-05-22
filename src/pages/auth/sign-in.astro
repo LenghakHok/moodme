@@ -18,9 +18,13 @@ import { OAuthForm } from "@/domains/auth/modules/oauth-form";
 
 <AuthLayout>
   <AuthCard>
-    <AuthCardContent>
-      <CardHeader className="flex flex-col items-center justify-center">
-        <Logo className="my-6" />
+    <AuthCardContent className="overflow-visible">
+      <Logo
+        className="bg-background hover:bg-background -translate-1/2 absolute left-1/2 top-0 border-2 border-dashed p-2"
+      />
+      <CardHeader
+        className="flex flex-col items-center justify-center overflow-visible pt-8"
+      >
         <CardTitle className="text-center text-2xl font-bold">
           Welcome back
         </CardTitle>
@@ -29,18 +33,16 @@ import { OAuthForm } from "@/domains/auth/modules/oauth-form";
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <!-- <SignInForm client:load />
-        <OrSeparator className="px-6" /> -->
         <OAuthForm client:load />
       </CardContent>
     </AuthCardContent>
-    <AuthCardFooter>
+    <AuthCardFooter className="pb-6">
       <Muted className="text-center">
         Do not have an account yet?
         <a
           class={cn(
             buttonVariants({
-              variant: "ghost",
+              variant: "link",
               size: "sm",
             }),
             "font-bold",
