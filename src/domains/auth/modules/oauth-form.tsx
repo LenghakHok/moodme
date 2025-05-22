@@ -90,11 +90,10 @@ export function OAuthForm({
                 className="transition-none"
                 key={provider.name}
                 onClick={() => form.setValue("provider", provider.name)}
-                size="lg"
                 variant="outline"
               >
                 <provider.icon className="size-4.5!" />
-                <span className="sr-only">
+                <span className="sr-only uppercase">
                   Continue with
                   <span className="capitalize"> {provider.name}</span>
                 </span>
@@ -110,7 +109,6 @@ export function OAuthForm({
                 className="w-full transition-none"
                 key={provider.name}
                 onClick={() => form.setValue("provider", provider.name)}
-                size="lg"
                 variant="outline"
               >
                 <provider.icon className="size-4.5!" />
