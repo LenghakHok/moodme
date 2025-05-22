@@ -1,3 +1,4 @@
+import { FormAlert } from "@/core/composites/form-alert";
 import type { authClient } from "@/core/lib/auth-client";
 import { cn } from "@/core/lib/cn";
 import { useCreateOrg } from "@/core/services/orgs/hooks";
@@ -24,7 +25,6 @@ import {
 } from "@/core/ui/form";
 import { Input } from "@/core/ui/input";
 import { Separator } from "@/core/ui/separator";
-import { FormAlert } from "@/domains/dashboard/composites/form-alert";
 import { createOrgDialog$ } from "@/domains/org/stores/org-store";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { observer, useObservable } from "@legendapp/state/react";
