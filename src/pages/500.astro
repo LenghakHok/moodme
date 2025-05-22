@@ -1,5 +1,16 @@
 ---
+import { ParticlesLayout } from "@/core/layouts/particles-layout";
 import RootLayout from "@/core/layouts/root-layout.astro";
+import { cn } from "@/core/lib/cn";
+import { buttonVariants } from "@/core/ui/button";
+import {
+  State,
+  StateActions,
+  StateDescription,
+  StateIcon,
+  StateTitle,
+} from "@/core/ui/state";
+import { ArrowLeftIcon, HeartCrackIcon } from "lucide-react";
 
 interface Props {
   error: unknown;
@@ -9,5 +20,41 @@ const { error } = Astro.props;
 ---
 
 <RootLayout>
-  {error instanceof Error ? error.message : "Internal Server Error"}
+  <ParticlesLayout>
+    <State>
+      <StateIcon>
+        <HeartCrackIcon className="size-12" />
+      </StateIcon>
+      <StateTitle className="text-xl font-extrabold">
+        {error instanceof Error ? error.message : "Internal Server Error"}
+      </StateTitle>
+      <StateDescription>
+        There is a problem on our end. Stay tune! We are fixing this as soon as
+        possible.
+      </StateDescription>
+      <StateActions>
+        <a
+          class={cn(
+            buttonVariants({ variant: "default" }),
+            "font-bold uppercase",
+          )}
+          href="/"
+        >
+          <ArrowLeftIcon />
+          <span>Take me back</span>
+        </a>
+
+        <a
+          class={cn(
+            buttonVariants({ variant: "outline" }),
+            "font-bold uppercase",
+          )}
+          href="/"
+        >
+          <ArrowLeftIcon />
+          <span>Report Bugs</span>
+        </a>
+      </StateActions>
+    </State>
+  </ParticlesLayout>
 </RootLayout>

@@ -1,5 +1,43 @@
 ---
+import { ParticlesLayout } from "@/core/layouts/particles-layout";
 import RootLayout from "@/core/layouts/root-layout.astro";
+import { cn } from "@/core/lib/cn";
+import { buttonVariants } from "@/core/ui/button";
+import {
+  State,
+  StateActions,
+  StateDescription,
+  StateIcon,
+  StateTitle,
+} from "@/core/ui/state";
+import { ArrowLeftIcon, ScanHeartIcon } from "lucide-react";
 ---
 
-<RootLayout> 404 - Not Found </RootLayout>
+<RootLayout>
+  <ParticlesLayout>
+    <State>
+      <StateIcon>
+        <ScanHeartIcon className="size-12" />
+      </StateIcon>
+      <StateTitle className="text-xl font-extrabold">
+        Page not Found
+      </StateTitle>
+      <StateDescription>
+        Looks like you have stumbled across a page that does not exist in our
+        universe.
+      </StateDescription>
+      <StateActions>
+        <a
+          class={cn(
+            buttonVariants({ variant: "default" }),
+            "font-bold uppercase",
+          )}
+          href="/"
+        >
+          <ArrowLeftIcon />
+          <span>Take me back</span>
+        </a>
+      </StateActions>
+    </State>
+  </ParticlesLayout>
+</RootLayout>
