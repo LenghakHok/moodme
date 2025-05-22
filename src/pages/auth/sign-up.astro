@@ -21,7 +21,7 @@ import { PUBLIC_APP_NAME } from "astro:env/client";
   <AuthCard>
     <AuthCardContent>
       <CardHeader className="flex flex-col items-center justify-center">
-        <Logo />
+        <Logo className="my-6" />
         <CardTitle className="text-center text-2xl font-bold">
           Create an Account
         </CardTitle>
@@ -41,7 +41,7 @@ import { PUBLIC_APP_NAME } from "astro:env/client";
         <a
           class={cn(
             buttonVariants({
-              variant: "link",
+              variant: "ghost",
               size: "sm",
             }),
             "font-bold",

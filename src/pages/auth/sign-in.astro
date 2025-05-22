@@ -20,7 +20,7 @@ import { OAuthForm } from "@/domains/auth/modules/oauth-form";
   <AuthCard>
     <AuthCardContent>
       <CardHeader className="flex flex-col items-center justify-center">
-        <Logo />
+        <Logo className="my-6" />
         <CardTitle className="text-center text-2xl font-bold">
           Welcome back
         </CardTitle>
@@ -40,7 +40,7 @@ import { OAuthForm } from "@/domains/auth/modules/oauth-form";
         <a
           class={cn(
             buttonVariants({
-              variant: "link",
+              variant: "ghost",
               size: "sm",
             }),
             "font-bold",

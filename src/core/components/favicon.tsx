@@ -2,13 +2,13 @@ export function Favicon() {
   return (
     <>
       <link
-        href="/svg/icon-dark.svg"
+        href="/svg/logo-dark.svg"
         media="(prefers-color-scheme: dark)"
         rel="icon"
         type="image/svg+xml"
       />
       <link
-        href="/svg/icon-light.svg"
+        href="/svg/logo-light.svg"
         media="(prefers-color-scheme: light)"
         rel="icon"
         type="image/svg+xml"
