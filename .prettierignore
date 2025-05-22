@@ -28,3 +28,11 @@ pnpm-debug.log*
 data
 
 .vercel
+
+*.js
+*.cjs
+*.mjs
+*.ts
+*.tsx
+*.json
+*.css

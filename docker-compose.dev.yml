@@ -1,0 +1,12 @@
+services:
+  database:
+    image: 'postgres:17'
+    container_name: moodme_pg
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data:Z
+    environment:
+      POSTGRES_USER: moodme # The PostgreSQL user (useful to connect to the database)
+      POSTGRES_PASSWORD: moodme # The PostgreSQL password (useful to connect to the database)
+      POSTGRES_DB: moodme # The PostgreSQL default database (automatically created at first launch)

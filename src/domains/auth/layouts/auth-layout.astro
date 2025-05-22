@@ -1,0 +1,23 @@
+---
+import { ParticlesLayout } from "@/core/layouts/particles-layout";
+import RootLayout from "@/core/layouts/root-layout.astro";
+import { cn } from "@/core/lib/cn";
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"main"> {}
+
+const { class: className, ...props } = Astro.props;
+---
+
+<RootLayout>
+  <ParticlesLayout client:load>
+    <main
+      class={cn(
+        "relative flex size-full flex-col items-center justify-center overflow-hidden rounded-sm border bg-background",
+        className,
+      )}
+      {...props}
+    >
+      <slot />
+    </main>
+  </ParticlesLayout>
+</RootLayout>

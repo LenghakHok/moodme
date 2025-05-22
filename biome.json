@@ -1,0 +1,174 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "assists": {
+    "actions": {
+      "source": {
+        "sortJsxProps": "on",
+        "useSortedKeys": "on"
+      }
+    },
+    "enabled": true,
+    "ignore": [
+      ".astro",
+      "*.astro",
+      ".idea",
+      ".next",
+      ".vercel",
+      ".turbo",
+      "build",
+      "dist",
+      "node_modules",
+      "data/postgresql"
+    ]
+  },
+  "css": {
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "formatter": {
+    "attributePosition": "multiline",
+    "bracketSpacing": true,
+    "enabled": true,
+    "formatWithErrors": true,
+    "ignore": [
+      ".astro",
+      "*.astro",
+      ".idea",
+      ".next",
+      ".vercel",
+      ".turbo",
+      "build",
+      "dist",
+      "node_modules",
+      "data/postgresql"
+    ],
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "double",
+      "semicolons": "always"
+    },
+    "jsxRuntime": "reactClassic",
+    "linter": {
+      "enabled": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "ignore": [
+      ".astro",
+      "*.astro",
+      ".idea",
+      ".next",
+      ".vercel",
+      ".turbo",
+      "build",
+      "dist",
+      "node_modules",
+      "data/postgresql"
+    ],
+    "rules": {
+      "a11y": {
+        "all": true
+      },
+      "all": true,
+      "complexity": {
+        "all": true
+      },
+      "correctness": {
+        "all": true,
+        "noNodejsModules": "off",
+        "noUndeclaredDependencies": "off",
+        "useImportExtensions": "off"
+      },
+      "nursery": {
+        "all": true,
+        "noProcessEnv": "off",
+        "noSecrets": "off",
+        "useComponentExportOnlyModules": "off",
+        "useConsistentCurlyBraces": {
+          "fix": "safe",
+          "level": "error"
+        },
+        "useExplicitType": "off",
+        "useImportRestrictions": "off",
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "error",
+          "options": {
+            "attributes": ["className"],
+            "functions": ["cn", "cva"]
+          }
+        }
+      },
+      "performance": {
+        "all": true,
+        "noBarrelFile": "off"
+      },
+      "security": {
+        "all": true
+      },
+      "style": {
+        "all": true,
+        "noDefaultExport": "off",
+        "noNamespace": "off",
+        "noNamespaceImport": "off",
+        "noParameterAssign": "warn",
+        "noParameterProperties": "off",
+        "useExplicitLengthCheck": "off",
+        "useFilenamingConvention": "off",
+        "useNamingConvention": "off"
+      },
+      "suspicious": {
+        "all": true,
+        "noConsole": "off",
+        "noConsoleLog": "off",
+        "noExplicitAny": "off",
+        "noReactSpecificProps": "off"
+      }
+    }
+  },
+  "organizeImports": {
+    "enabled": false,
+    "ignore": [
+      ".astro",
+      "*.astro",
+      ".idea",
+      ".next",
+      ".vercel",
+      ".turbo",
+      "build",
+      "dist",
+      "node_modules",
+      "data/postgresql"
+    ]
+  },
+  "overrides": [
+    {
+      "formatter": {
+        "enabled": false
+      },
+      "include": ["*.astro"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedImports": "off",
+            "noUnusedVariables": "off"
+          },
+          "style": {
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ]
+}
