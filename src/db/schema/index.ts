@@ -8,3 +8,5 @@ export {
   users,
   verifications,
 } from "./auth";
+
+export { moods } from "./mood";

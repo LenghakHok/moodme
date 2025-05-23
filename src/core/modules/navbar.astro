@@ -9,6 +9,9 @@ import { NavigationLinks } from "@/core/composites/navigation-links";
 import { ProfilePreview } from "@/core/composites/profile-preview";
 import { ThemesToggle } from "@/core/composites/themes-toggle";
 import type { ComponentPropsWithRef } from "react";
+import { GithubIcon } from "../icons/github";
+import { cn } from "../lib/cn";
+import { buttonVariants } from "../ui/button";
 
 type Props = ComponentPropsWithRef<typeof Navigation>;
 
@@ -28,6 +31,19 @@ const { ...props } = Astro.props;
       variant="ghost"
       client:load
     />
+
+    <a
+      href="https://github.com/LenghakHok/moodme"
+      about="_blank"
+      class={cn(
+        buttonVariants({ size: "icon", variant: "ghost" }),
+        "size-8 rounded-full text-muted-foreground",
+      )}
+    >
+      <GithubIcon />
+      <span class="sr-only">Githu Repo</span>
+    </a>
+
     <NavigationSeparator className="mr-2" />
     <ProfilePreview client:load user={locals?.user!} />
   </NavigationActions>

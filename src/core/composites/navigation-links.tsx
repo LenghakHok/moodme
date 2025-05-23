@@ -18,23 +18,23 @@ export function NavigationLinks(
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink
-            className={cn("px-4")}
+            className={cn("px-4 py-1.5")}
             href="/"
           >
             Feed
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="">
           <NavigationMenuLink
-            className={cn("px-4")}
+            className={cn("px-4 py-1.5")}
             href="/profile"
           >
             Profile
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="">
           <NavigationMenuLink
-            className={cn("px-4")}
+            className={cn("px-4 py-1.5")}
             href="/sponsor"
           >
             Sponsor
