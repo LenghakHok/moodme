@@ -109,7 +109,6 @@ export const MoodCreateDialog = observer(
 
 export function MoodCreateForm() {
   const moodDialog = useObservable(moodDialogStore$);
-  const { mutate, isSuccess, isPending } = useCreateMood();
 
   const form = useForm<MoodInsertSchema>({
     resolver: valibotResolver(MoodInsertFormSchema),
@@ -121,6 +120,7 @@ export function MoodCreateForm() {
       note: "",
     },
   });
+  const { mutate, isSuccess, isPending } = useCreateMood(form);
 
   useEffect(() => {
     if (isSuccess) {

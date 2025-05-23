@@ -26,3 +26,27 @@ export const emotions = [
     icon: ExcitedIcon,
   },
 ];
+export const emotionsEnum = {
+  upset: {
+    label: "upset",
+    icon: <UpsetIcon />,
+  },
+  sad: {
+    label: "sad",
+    icon: <SadIcon />,
+  },
+  neutral: {
+    label: "neutral",
+    icon: (
+      <NeutralIcon className="[&_path]:first:fill-amber-200 [&_path]:last:fill-amber-500" />
+    ),
+  },
+  happy: {
+    label: "happy",
+    icon: <HappyIcon />,
+  },
+  excited: {
+    label: "excited",
+    icon: <ExcitedIcon />,
+  },
+};

@@ -27,3 +27,13 @@ export const MoodInsertFormSchema = object({
 });
 
 export type MoodInsertSchema = InferInput<typeof MoodInsertFormSchema>;
+
+export const MoodUpdateFormSchema = object({
+  id: string(),
+  label: string(),
+  note: string(),
+  date: date(),
+  emoji: string(),
+});
+
+export type MoodUpdateSchema = InferInput<typeof MoodUpdateFormSchema>;

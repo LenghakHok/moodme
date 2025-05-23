@@ -3,7 +3,7 @@ import {
   validateMoodInsert,
 } from "@/core/services/moods/pipes";
 import { db } from "@/db";
-import { moods } from "@/db/schema";
+import { moods, users } from "@/db/schema";
 import { typiaValidator } from "@hono/typia-validator";
 import { eq } from "drizzle-orm";
 import { Hono } from "hono";
@@ -12,7 +12,10 @@ import type { Env } from "./context";
 const app = new Hono<Env>();
 
 app.get("/", async (c) => {
-  const lists = await db.select().from(moods);
+  const lists = await db
+    .select()
+    .from(moods)
+    .leftJoin(users, eq(users.id, moods.userId));
 
   return c.json(lists);
 });
