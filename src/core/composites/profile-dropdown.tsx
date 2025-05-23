@@ -11,7 +11,7 @@ import {
 import { Muted } from "@/core/ui/typography";
 
 // Icons
-import { LogOutIcon, UserPlusIcon } from "lucide-react";
+import { LogOutIcon, UserIcon } from "lucide-react";
 
 // Utils & Hooks
 import { cn } from "@/core/lib/cn";
@@ -40,8 +40,8 @@ export function ProfileDisplay({
       />
 
       <div className="flex w-fit flex-col items-start justify-center">
-        <span className="font-bold">{user.name}</span>
-        <Muted>{user.email}</Muted>
+        <span className="font-bold">{user?.name}</span>
+        <Muted>{user?.email}</Muted>
       </div>
     </div>
   );
@@ -82,14 +82,20 @@ export function ProfileDropdown({ user, ...props }: UserAvatarProps) {
             />
 
             <div className="justify-end-safe flex w-full flex-row items-center gap-2">
-              <DropdownMenuItem className="w-full justify-center border shadow-xs">
-                <UserPlusIcon />
-                <span>Add Account</span>
+              <DropdownMenuItem
+                asChild={true}
+                className="w-full justify-center border border-b-4 shadow-xs active:border-b"
+              >
+                <a href="/profile">
+                  <UserIcon />
+                  <span>Profile</span>
+                </a>
               </DropdownMenuItem>
 
               <DropdownMenuItem
-                className="w-full justify-center border shadow-xs"
+                className="w-full justify-center border border-b-4 shadow-xs active:border-b"
                 onClick={handleSignOut}
+                variant="destructive"
               >
                 <LogOutIcon />
                 <span>Sign Out</span>

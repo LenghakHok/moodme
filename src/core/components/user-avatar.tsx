@@ -15,7 +15,7 @@ export function UserAvatar({ user, className, ...props }: Props) {
     >
       <AvatarImage
         alt="profile"
-        src={user.image ?? ""}
+        src={user?.image ?? ""}
       />
       <AvatarFallback className="border uppercase">
         {user?.name?.[0]}

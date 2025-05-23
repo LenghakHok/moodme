@@ -11,6 +11,7 @@ import { ThemesToggle } from "@/core/composites/themes-toggle";
 import { GithubIcon } from "@/core/icons/github";
 import { cn } from "@/core/lib/cn";
 import { buttonVariants } from "@/core/ui/button";
+import { If } from "@/core/utils/if";
 import type { ComponentPropsWithRef } from "react";
 
 type Props = ComponentPropsWithRef<typeof Navigation>;
@@ -45,6 +46,17 @@ const { ...props } = Astro.props;
     </a>
 
     <NavigationSeparator className="mr-2" />
-    <ProfileDropdown className="size-8" client:load user={locals?.user!} />
+    <If isTrue={!locals}>
+      <a
+        href="/auth/sign-in"
+        class={cn(buttonVariants({ variant: "default" }), "h-9 rounded-full")}
+      >
+        Sign In
+      </a>
+    </If>
+
+    <If isTrue={Boolean(locals?.user.id)}>
+      <ProfileDropdown className="size-8" client:load user={locals?.user!} />
+    </If>
   </NavigationActions>
 </Navigation>
