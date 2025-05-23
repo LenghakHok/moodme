@@ -9,11 +9,11 @@
       "when": 1747906446902
     },
     {
+      "breakpoints": true,
       "idx": 1,
-      "version": "7",
-      "when": 1747972722800,
       "tag": "0001_oval_sprite",
-      "breakpoints": true
+      "version": "7",
+      "when": 1747972722800
     }
   ],
   "version": "7"
