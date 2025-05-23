@@ -11,7 +11,7 @@ export function Navigation({
   return (
     <header
       className={cn(
-        "relative flex h-12 w-full max-w-2xl flex-row items-center justify-between gap-4 rounded-full bg-background px-2",
+        "relative flex h-12 w-full max-w-3xl flex-row items-center justify-between gap-4 rounded-full bg-background px-2",
         className,
       )}
       {...props}
