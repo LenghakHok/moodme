@@ -17,7 +17,7 @@ export function ProfilePreview({ user, ...props }: Props) {
     <HoverCard {...props}>
       <HoverCardTrigger>
         <UserAvatar
-          className="size-10"
+          className="size-8"
           user={user}
         />
       </HoverCardTrigger>

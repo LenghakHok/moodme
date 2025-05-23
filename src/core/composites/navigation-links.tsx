@@ -4,7 +4,6 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
 } from "@/core/ui/navigation-menu";
 import type { ComponentPropsWithRef } from "react";
 
@@ -19,10 +18,7 @@ export function NavigationLinks(
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              "uppercase tracking-wider",
-            )}
+            className={cn("px-4")}
             href="/"
           >
             Feed
@@ -30,10 +26,7 @@ export function NavigationLinks(
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              "uppercase tracking-wider",
-            )}
+            className={cn("px-4")}
             href="/profile"
           >
             Profile
@@ -41,10 +34,7 @@ export function NavigationLinks(
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              "uppercase tracking-wider",
-            )}
+            className={cn("px-4")}
             href="/sponsor"
           >
             Sponsor

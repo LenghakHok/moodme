@@ -1,8 +1,11 @@
 ---
+import { ParticlesLayout } from "@/core/layouts/particles-layout";
 import RootLayout from "@/core/layouts/root-layout.astro";
 import Navbar from "@/core/modules/navbar.astro";
 ---
 
 <RootLayout>
-  <Navbar className="fixed left-1/2 top-4 -translate-x-1/2" />
+  <ParticlesLayout client:load>
+    <Navbar className="fixed left-1/2 top-4 -translate-x-1/2" />
+  </ParticlesLayout>
 </RootLayout>

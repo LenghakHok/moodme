@@ -11,7 +11,7 @@ export function Navigation({
   return (
     <header
       className={cn(
-        "relative flex w-full max-w-2xl flex-row items-center justify-between gap-4 rounded-full border p-2 shadow",
+        "relative flex h-12 w-full max-w-2xl flex-row items-center justify-between gap-4 rounded-full border bg-card px-2 shadow",
         className,
       )}
       {...props}
@@ -27,7 +27,7 @@ export function NavigationLogo({
 }: ComponentPropsWithRef<typeof Logo>) {
   return (
     <Logo
-      className={cn("[&_svg:not([class*='size-'])]:size-10", className)}
+      className={cn("[&_svg:not([class*='size-'])]:size-8", className)}
       {...props}
     />
   );

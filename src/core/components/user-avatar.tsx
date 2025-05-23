@@ -18,7 +18,7 @@ export function UserAvatar({ user, className, ...props }: Props) {
         src={user.image ?? ""}
       />
       <AvatarFallback className="border uppercase">
-        {user?.name?.slice(0, 2)}
+        {user?.name?.[0]}
       </AvatarFallback>
     </Avatar>
   );
