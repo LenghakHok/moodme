@@ -51,15 +51,24 @@ export const ThemesToggle = observer(
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => theme$.set("light")}>
+          <DropdownMenuItem
+            className="gap-3"
+            onClick={() => theme$.set("light")}
+          >
             <SunIcon />
             <span>Light</span>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => theme$.set("dark")}>
+          <DropdownMenuItem
+            className="gap-3"
+            onClick={() => theme$.set("dark")}
+          >
             <MoonStarIcon />
             <span>Dark</span>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => theme$.set("system")}>
+          <DropdownMenuItem
+            className="gap-3"
+            onClick={() => theme$.set("system")}
+          >
             <MonitorIcon />
             <span>System</span>
           </DropdownMenuItem>

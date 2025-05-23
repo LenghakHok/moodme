@@ -1,0 +1,34 @@
+---
+import {
+  Navigation,
+  NavigationActions,
+  NavigationLogo,
+  NavigationSeparator,
+} from "@/core/components/navigation";
+import { NavigationLinks } from "@/core/composites/navigation-links";
+import { ProfilePreview } from "@/core/composites/profile-preview";
+import { ThemesToggle } from "@/core/composites/themes-toggle";
+import type { ComponentPropsWithRef } from "react";
+
+type Props = ComponentPropsWithRef<typeof Navigation>;
+
+const locals = Astro.locals.session;
+
+const { ...props } = Astro.props;
+---
+
+<Navigation {...props}>
+  <NavigationLogo className="rounded-full [&_svg]:rounded-full" />
+
+  <NavigationLinks />
+
+  <NavigationActions>
+    <ThemesToggle
+      className="text-muted-foreground rounded-full"
+      variant="ghost"
+      client:load
+    />
+    <NavigationSeparator className="mr-2" />
+    <ProfilePreview client:load user={locals?.user!} />
+  </NavigationActions>
+</Navigation>

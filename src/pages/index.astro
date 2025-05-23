@@ -1,8 +1,8 @@
 ---
-import { ThemesToggle } from "@/core/composites/themes-toggle";
 import RootLayout from "@/core/layouts/root-layout.astro";
+import Navbar from "@/core/modules/navbar.astro";
 ---
 
 <RootLayout>
-  <ThemesToggle client:only="react" />
+  <Navbar className="fixed left-1/2 top-4 -translate-x-1/2" />
 </RootLayout>
