@@ -20,6 +20,22 @@ app.get("/", async (c) => {
   return c.json(lists);
 });
 
+app.get("/me", async (c) => {
+  const user = c.get("user");
+
+  if (!user) {
+    return c.body(null, 401);
+  }
+
+  const lists = await db
+    .select()
+    .from(moods)
+    .where(eq(users.id, moods.userId))
+    .leftJoin(users, eq(users.id, moods.userId));
+
+  return c.json(lists);
+});
+
 app.get(
   "/:id",
   typiaValidator("param", validateMoodIdParam, (result, c) => {

@@ -143,3 +143,15 @@ export function useGetMoodLists() {
     queryClient,
   );
 }
+
+export function useGetMyMoodLists() {
+  const queryClient = useStore($queryClient);
+
+  return useQuery(
+    {
+      queryKey: ["mood", "list"],
+      queryFn: async () => $fetch<Mood[]>("/api/mood/me"),
+    },
+    queryClient,
+  );
+}

@@ -11,12 +11,13 @@ import {
   MoodCreateDialog,
   MoodEmotions,
 } from "@/domains/mood/modules/mood-create";
+import { MyMoodList } from "@/domains/mood/modules/moods-list";
 
 const locals = Astro.locals.session;
 ---
 
 <MoodLayout>
-  <section class="w-full max-w-lg">
+  <section class="w-full max-w-lg space-y-6">
     <!-- Main -->
     <Card className="bg-card/50 mx-auto w-full">
       <CardHeader>
@@ -31,6 +32,8 @@ const locals = Astro.locals.session;
       </CardFooter>
       <!-- <MoodCalendar client:load /> -->
     </Card>
+
+    <MyMoodList />
 
     <MoodCreateDialog client:load />
   </section>
