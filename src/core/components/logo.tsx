@@ -1,4 +1,4 @@
-import { BrandIconLight } from "@/core/icons/brand";
+import { BrandIconDark, BrandIconLight } from "@/core/icons/brand";
 import { cn } from "@/core/lib/cn";
 import { buttonVariants } from "@/core/ui/button";
 import type { ComponentPropsWithRef } from "react";
@@ -14,8 +14,8 @@ export function Logo({ className, ...props }: ComponentPropsWithRef<"a">) {
       href="/"
       {...props}
     >
-      {/* <BrandIconDark className="hidden dark:block" /> */}
-      <BrandIconLight />
+      <BrandIconDark className="hidden dark:block" />
+      <BrandIconLight className="block dark:hidden" />
       <span className="sr-only"> Logo </span>
     </a>
   );
