@@ -1,0 +1,62 @@
+---
+import {
+  Navigation,
+  NavigationActions,
+  NavigationLogo,
+  NavigationSeparator,
+} from "@/core/components/navigation";
+import { NavigationLinks } from "@/core/composites/navigation-links";
+import { ProfileDropdown } from "@/core/composites/profile-dropdown";
+import { ThemesToggle } from "@/core/composites/themes-toggle";
+import { GithubIcon } from "@/core/icons/github";
+import { cn } from "@/core/lib/cn";
+import { buttonVariants } from "@/core/ui/button";
+import { If } from "@/core/utils/if";
+import type { ComponentPropsWithRef } from "react";
+
+type Props = ComponentPropsWithRef<typeof Navigation>;
+
+const locals = Astro.locals.session;
+
+const { ...props } = Astro.props;
+---
+
+<Navigation {...props}>
+  <NavigationLogo className="rounded-full [&_svg]:rounded-full" />
+
+  <NavigationLinks />
+
+  <NavigationActions>
+    <ThemesToggle
+      className="text-muted-foreground size-8 rounded-full"
+      variant="ghost"
+      client:load
+    />
+
+    <a
+      href="https://github.com/LenghakHok/moodme"
+      about="_blank"
+      class={cn(
+        buttonVariants({ size: "icon", variant: "ghost" }),
+        "size-8 rounded-full text-muted-foreground",
+      )}
+    >
+      <GithubIcon />
+      <span class="sr-only">Githu Repo</span>
+    </a>
+
+    <NavigationSeparator className="mr-2" />
+    <If isTrue={!locals}>
+      <a
+        href="/auth/sign-in"
+        class={cn(buttonVariants({ variant: "default" }), "h-9 rounded-full")}
+      >
+        Sign In
+      </a>
+    </If>
+
+    <If isTrue={Boolean(locals?.user.id)}>
+      <ProfileDropdown className="size-8" client:load user={locals?.user!} />
+    </If>
+  </NavigationActions>
+</Navigation>

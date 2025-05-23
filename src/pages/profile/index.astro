@@ -1,0 +1,40 @@
+---
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/core/ui/card";
+import MoodLayout from "@/domains/mood/layouts/mood-layout.astro";
+import {
+  MoodCreateDialog,
+  MoodEmotions,
+} from "@/domains/mood/modules/mood-create";
+import { MyMoodList } from "@/domains/mood/modules/moods-list";
+
+const locals = Astro.locals.session;
+---
+
+<MoodLayout>
+  <section class="w-full max-w-lg space-y-6">
+    <!-- Main -->
+    <Card className="bg-card/50 mx-auto w-full">
+      <CardHeader>
+        <CardTitle> How are you feedling today? </CardTitle>
+        <CardDescription>
+          You are free to express how you feel to the whole world
+        </CardDescription>
+      </CardHeader>
+
+      <CardFooter className="flex w-full items-center justify-between gap-4">
+        <MoodEmotions client:load />
+      </CardFooter>
+      <!-- <MoodCalendar client:load /> -->
+    </Card>
+
+    <MyMoodList />
+
+    <MoodCreateDialog client:load />
+  </section>
+</MoodLayout>

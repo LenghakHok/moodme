@@ -1,8 +1,21 @@
 ---
-import { ThemesToggle } from "@/core/composites/themes-toggle";
-import RootLayout from "@/core/layouts/root-layout.astro";
+import HomeLayout from "@/core/layouts/home-layout.astro";
+import { $queryClient } from "@/core/lib/query-client";
+import { preloadMoodList } from "@/core/services/moods/loaders";
+import { MoodList } from "@/domains/mood/modules/moods-list";
+import { dehydrate } from "@tanstack/react-query";
+
+const queryclient = $queryClient.get();
+
+preloadMoodList(queryclient);
+
+const state = dehydrate(queryclient);
 ---
 
-<RootLayout>
-  <ThemesToggle client:only="react" />
-</RootLayout>
+<HomeLayout>
+  <section
+    class="flex min-h-dvh flex-row flex-wrap items-start justify-start gap-6"
+  >
+    <MoodList state={state} client:load />
+  </section>
+</HomeLayout>

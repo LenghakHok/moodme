@@ -1,4 +1,5 @@
 import { auth } from "@/server/auth";
+import { mood } from "@/server/mood";
 import type { APIRoute } from "astro";
 import { WHITELISTED_URLS } from "astro:env/server";
 import { Hono } from "hono";
@@ -17,6 +18,7 @@ app.use(secureHeaders());
 app.use(trimTrailingSlash());
 
 app.route("/", auth);
+app.route("/api/mood", mood);
 
 export const ALL: APIRoute = async (context) =>
   await app.fetch(context.request);

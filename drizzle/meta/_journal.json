@@ -7,6 +7,13 @@
       "tag": "0000_lame_firedrake",
       "version": "7",
       "when": 1747906446902
+    },
+    {
+      "breakpoints": true,
+      "idx": 1,
+      "tag": "0001_oval_sprite",
+      "version": "7",
+      "when": 1747972722800
     }
   ],
   "version": "7"
