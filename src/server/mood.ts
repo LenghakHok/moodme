@@ -21,10 +21,13 @@ app.get(
   "/:id",
   typiaValidator("param", validateMoodIdParam, (result, c) => {
     if (!result.success) {
-      return c.json({
-        message: "Bad Request",
-        error: result.errors,
-      });
+      return c.json(
+        {
+          message: "Bad Request",
+          error: result.errors,
+        },
+        400,
+      );
     }
   }),
   async (c) => {
@@ -39,10 +42,13 @@ app.post(
   "/",
   typiaValidator("json", validateMoodInsert, (result, c) => {
     if (!result.success) {
-      return c.json({
-        message: "Bad Request",
-        error: result.errors,
-      });
+      return c.json(
+        {
+          message: "Bad Request",
+          error: result.errors,
+        },
+        400,
+      );
     }
   }),
   async (c) => {
@@ -54,10 +60,14 @@ app.post(
       return c.body(null, 401);
     }
 
-    const mood = await db.insert(moods).values({
-      ...body,
-      userId: user.id,
-    });
+    const mood = await db
+      .insert(moods)
+      .values({
+        ...body,
+        userId: user.id,
+        date: new Date(body.date),
+      })
+      .returning();
 
     return c.json(mood);
   },
@@ -67,18 +77,24 @@ app.patch(
   "/:id",
   typiaValidator("param", validateMoodIdParam, (result, c) => {
     if (!result.success) {
-      return c.json({
-        message: "Bad Request",
-        error: result.errors,
-      });
+      return c.json(
+        {
+          message: "Bad Request",
+          error: result.errors,
+        },
+        400,
+      );
     }
   }),
   typiaValidator("json", validateMoodInsert, (result, c) => {
     if (!result.success) {
-      return c.json({
-        message: "Bad Request",
-        error: result.errors,
-      });
+      return c.json(
+        {
+          message: "Bad Request",
+          error: result.errors,
+        },
+        400,
+      );
     }
   }),
   async (c) => {
@@ -118,8 +134,10 @@ app.patch(
       .set({
         ...body,
         userId: user.id,
+        date: new Date(body.date),
       })
-      .where(eq(moods.id, param.id));
+      .where(eq(moods.id, param.id))
+      .returning();
 
     return c.json(data);
   },
@@ -129,10 +147,13 @@ app.delete(
   "/:id",
   typiaValidator("param", validateMoodIdParam, (result, c) => {
     if (!result.success) {
-      return c.json({
-        message: "Bad Request",
-        error: result.errors,
-      });
+      return c.json(
+        {
+          message: "Bad Request",
+          error: result.errors,
+        },
+        400,
+      );
     }
   }),
   async (c) => {
@@ -166,7 +187,9 @@ app.delete(
       );
     }
 
-    return c.json(await db.delete(moods).where(eq(moods.id, param.id)));
+    return c.json(
+      await db.delete(moods).where(eq(moods.id, param.id)).returning(),
+    );
   },
 );
 

@@ -7,7 +7,10 @@ import {
   CardTitle,
 } from "@/core/ui/card";
 import MoodLayout from "@/domains/mood/layouts/mood-layout.astro";
-import { MoodEmotions } from "@/domains/mood/modules/mood-create";
+import {
+  MoodCreateDialog,
+  MoodEmotions,
+} from "@/domains/mood/modules/mood-create";
 
 const locals = Astro.locals.session;
 ---
@@ -28,5 +31,7 @@ const locals = Astro.locals.session;
       </CardFooter>
       <!-- <MoodCalendar client:load /> -->
     </Card>
+
+    <MoodCreateDialog client:load />
   </section>
 </MoodLayout>
