@@ -6,7 +6,7 @@ import {
   NavigationSeparator,
 } from "@/core/components/navigation";
 import { NavigationLinks } from "@/core/composites/navigation-links";
-import { ProfilePreview } from "@/core/composites/profile-preview";
+import { ProfileDropdown } from "@/core/composites/profile-dropdown";
 import { ThemesToggle } from "@/core/composites/themes-toggle";
 import { GithubIcon } from "@/core/icons/github";
 import { cn } from "@/core/lib/cn";
@@ -45,6 +45,6 @@ const { ...props } = Astro.props;
     </a>
 
     <NavigationSeparator className="mr-2" />
-    <ProfilePreview client:load user={locals?.user!} />
+    <ProfileDropdown className="size-8" client:load user={locals?.user!} />
   </NavigationActions>
 </Navigation>
